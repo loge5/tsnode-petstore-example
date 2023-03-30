@@ -1,0 +1,58 @@
+{
+  "name": "ts-petstore-example",
+  "version": "1.0.0",
+  "description": "Example implementation of the openapi petstore",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:loge5/tsnode-petstore-example.git"
+  },
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "test": "mocha --require ts-node/register --recursive \"lib/**/*.spec.ts\"",
+    "cover": "node node_modules/nyc/bin/nyc.js --reporter=html npm test",
+    "format": "node node_modules/.bin/ts-standard --fix",
+    "prerelease": "npm test",
+    "release": "standard-version",
+    "postrelease": "git push --follow-tags origin master"
+  },
+  "keywords": [
+    "example",
+    "rest",
+    "openapi",
+    "swagger"
+  ],
+  "author": "Rolf Loges",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/express": "^4.17.17",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.15.11",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
+    "standard-version": "^9.5.0",
+    "ts-standard": "^12.0.2",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "another-fluent-validator": "^1.6.5",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "ts-node": "^10.9.1"
+  },
+  "ts-standard": {
+    "ignore": [
+      "swaggerui-dist"
+    ]
+  },
+  "nyc": {
+    "exclude": [
+      "**/*.spec.ts",
+      "swaggerui-dist",
+      "config"
+    ]
+  }
+}
